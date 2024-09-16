@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "regions": ["cpt1"],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/app.py"
+        }
+    ]
+}
