@@ -45,7 +45,7 @@ brew install python3
 
 Additionally, it’s recommended to use **Git Bash** instead of PowerShell for running commands, especially when working with Unix-like environments (such as virtual environments or when deploying). Git Bash offers a more consistent and familiar command-line interface compared to PowerShell, aligning better with tutorials and development tools that assume a Linux-like shell.
 
-#### Install Git Bash:
+## Install Git Bash:
 1. Download Git for Windows from the [official Git website](https://git-scm.com/download/win).
 2. Run the installer, and during installation, select **"Git Bash"** as the default terminal.
 3. Complete the installation.
