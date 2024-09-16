@@ -3,21 +3,37 @@
 ## Introduction
 This guide will walk you through setting up a basic Flask web application with a virtual environment, connecting to a MongoDB Atlas instance, and running your project locally. We will start by ensuring Python 3 is installed, creating a project directory, and setting up a Python virtual environment. You'll learn how to install Flask, build a simple web app, and integrate MongoDB for data storage. Finally, we will deploy the project to Vercel for hosting, allowing you to make your application accessible online. By the end, you'll have a fully functional Flask application ready for development and deployment.
 
-Here’s the updated section with instructions for installing Git Bash on Windows and an explanation of why it can be preferred over PowerShell:
+# Table of Contents
+
+- [Install Python 3](#install-python-3)
+    - [On Ubuntu/Debian](#on-ubuntu)
+    - [On macOS](#on-macos)
+    - [On Windows](#on-windows)
+    - [On Ubuntu/Debian](#on-ubuntu)
+- [Install Git Bash](#install-git-bash)
+- [Create a Project Directory](#create-a-project-directory)
+- [Create a virtual environment](#create-a-virtual-environment)
+- [Install Flask](#install-Flask)
+- [Create a file for your web application](#create-a-file-for-your-web-application)
+- [Run the application](#run-the-application)
+- [MongoDB integration](#mongodb-integration)
+- [Test Your Application](#test-your-application)
+
+
 
 ---
 
-##Install Python 3
+## Install Python 3
 
 If you don't already have Python 3 installed, follow the instructions for your operating system below:
 
-### On Ubuntu/Debian:
+### On Ubuntu:
 ```bash
 sudo apt update
 sudo apt install python3 python3-venv python3-pip
 ```
 
-### On macOS using Homebrew:
+### On macOS:
 ```bash
 brew install python3
 ```
@@ -204,11 +220,11 @@ python3 app.py
 
 To test the provided Flask API using Postman, follow these steps:
 
-###**Start Your Flask Application**
+###Test Your Application
 
 First, ensure your Flask application is running. You should see output indicating it's running on `http://0.0.0.0:5555`.
 
-###**Open Postman**
+###Open Postman
 
 Launch Postman and set up the following requests to test each endpoint:
 
@@ -305,7 +321,6 @@ Launch Postman and set up the following requests to test each endpoint:
   7. Click `Send`.
   8. You should receive a response with the count of modified documents.
 
-These steps will help you test each endpoint of your Flask API using Postman effectively.
 
 
 
