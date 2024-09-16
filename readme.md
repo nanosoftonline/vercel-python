@@ -320,5 +320,88 @@ Launch Postman and set up the following requests to test each endpoint:
   8. You should receive a response with the count of modified documents.
 
 
+  Deploying a Flask application to Vercel involves a few steps, but Vercel is primarily geared towards static sites and frontend applications. However, you can deploy serverless functions, including Flask apps, using Vercel’s serverless functions feature. Here’s a step-by-step guide:
+
+## Prepare Your Flask Application
+
+### Create a `vercel.json` Configuration File
+
+   This file tells Vercel how to build and deploy your application. Create a file named `vercel.json` in the root of your project with the following content:
+
+   ```json
+{
+    "version": 2,
+    "regions": ["iad1"],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/app.py"
+        }
+    ]
+}
+   ```
+
+   This configuration tells Vercel to use the Python runtime for any files in the `api/` directory.
+
+### Organize Your Project
+
+   Move your Flask application code into the `api/` directory. For example:
+
+   ```
+   /project-root
+     /api
+       app.py
+     vercel.json
+     requirements.txt
+   ```
+
+### Create `requirements.txt`
+
+   Ensure you have a `requirements.txt` file in your project root that lists all your dependencies. You can generate it with:
+
+   ```bash
+   pip freeze > requirements.txt
+   ```
+
+## Deploy to Vercel
+
+### Install Vercel CLI
+
+   If you don’t have the Vercel CLI installed, you can install it using npm:
+
+   ```bash
+   npm install -g vercel
+   ```
+
+### Login to Vercel
+
+   Log in to your Vercel account or create a new one:
+
+   ```bash
+   vercel login
+   ```
+
+### Deploy Your Project
+
+   Navigate to your project directory and deploy:
+
+   ```bash
+   vercel --prod
+   ```
+
+   Follow the prompts to set up your deployment. Vercel will build and deploy your project, providing you with a URL to view it.
+
+
+### Configure Environment Variables
+
+   Set your environment variables in Vercel’s dashboard under your project’s settings. This is where you’ll need to set the `MONGODB_URI`.
+
+### Verify Your Deployment
+
+After deployment, visit the URL provided by Vercel to verify that your Flask application is running correctly. Check for any errors or issues and adjust your configuration if needed.
+
+
+
+
 
 
