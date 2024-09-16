@@ -16,6 +16,7 @@ This guide will walk you through setting up a basic Flask web application with a
 - [Run the application](#run-the-application)
 - [MongoDB integration](#mongodb-integration)
 - [Test Your Application](#test-your-application)
+- [Prepare Your Application for Vercel](#prepare-your-application-for-vercel)
 
 
 
@@ -322,7 +323,7 @@ Launch Postman and set up the following requests to test each endpoint:
 
   Deploying a Flask application to Vercel involves a few steps, but Vercel is primarily geared towards static sites and frontend applications. However, you can deploy serverless functions, including Flask apps, using Vercel’s serverless functions feature. Here’s a step-by-step guide:
 
-## Prepare Your Flask Application
+## Prepare Your Application for Vercel
 
 ### Create a `vercel.json` Configuration File
 
