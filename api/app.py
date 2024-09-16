@@ -1,10 +1,14 @@
+import os
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+import json
+from bson import ObjectId
 import certifi
+
 app = Flask(__name__)
 
-
-mongodb_uri = "mongodb+srv://smithjshaw:AtlasPassword2024@capetown.atlxp9f.mongodb.net/?retryWrites=true&w=majority&appName=CapeTown"
+# MongoDB connection
+mongodb_uri = os.getenv("MONGODB_URI")
 client = MongoClient(mongodb_uri, tlsCAFile=certifi.where())
 db = client.get_database("DB1")
 
@@ -12,30 +16,38 @@ db = client.get_database("DB1")
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/hello")
-def hello():
-    return "<h2>Hello Again!</h2>"
-
-@app.route("/prod/<int:num1>/<int:num2>")
-def prod(num1, num2):
-    return f"<h2>The product of {num1} and {num2} is {num1 * num2}</h2>"
-
-@app.route("/add/<int:num1>/<int:num2>")
-def add(num1, num2):
-    return f"<h2>The sum of {num1} and {num2} is {num1 + num2}</h2>"
-
-@app.route("/users", methods=["GET", "POST"])
-def users():
-    if request.method == "POST":
+@app.route("/users", methods=["GET"])
+def get_users():
+        users = list(db.get_collection("users").find({}))
+        for u in users:
+           u["_id"] = str(u["_id"])     
+        return jsonify(users)
+    
+@app.route("/users", methods=["POST"])
+def insert_user():
         user = request.json
         result = db.get_collection("users").insert_one(user)
         return jsonify({"id": str(result.inserted_id)}), 201
-    else:
-        users = list(db.get_collection("users").find({}, {"_id": 0}))
+    
 
-        return jsonify(users)
+@app.route("/users/<id>", methods=["DELETE"])
+def delete_user(id):
+        result = db.get_collection("users").delete_one({"_id": ObjectId(id)})
+        return jsonify({"deleted_count": result.deleted_count}), 200
+    
 
+@app.route("/users/<id>", methods=["GET"])
+def get_user(id):
+        result = db.get_collection("users").find_one({"_id": ObjectId(id)})
+        result["_id"] = str(result["_id"])
+        return jsonify(result), 200
+
+@app.route("/users/<id>", methods=["PUT"])
+def update_user(id):
+        user = request.json
+        result = db.get_collection("users").update_one({"_id": ObjectId(id)}, {"$set": user})
+        return jsonify({"modified_count": result.modified_count}), 200
+    
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5555, debug=True)
-
+    app.run(host='0.0.0.0', debug=True, port=5555)
