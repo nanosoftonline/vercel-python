@@ -97,7 +97,7 @@ pip3 freeze
 You'll notice that there are currently no packages installed. If you run this command from another uninitialised environment you'll see the globally installed packages
 
 ---
-##Install Flask
+## Install Flask
 Once you have the virtual environment activated you have to install flask
 ```bash
 pip3 install flask
@@ -105,7 +105,7 @@ pip3 install flask
 I can run "pip3 freeze" to show all the installed in this environment
 
 ---
-##Create a file for your web application
+## Create a file for your web application
 ```py
 #app.py
 from flask import Flask
@@ -130,13 +130,13 @@ pip3 freeze > requirements.txt
 ```
 
 ---
-##Run the application
+## Run the application
 To run the application simply run
 ```
 python3 app.py
 ```
 ---
-##MongoDB integration
+## MongoDB integration
 
 To connect this project to a MongoDB Atlas instance, first install the PyMongo library by running 
 
@@ -220,7 +220,7 @@ python3 app.py
 
 To test the provided Flask API using Postman, follow these steps:
 
-###Test Your Application
+## Test Your Application
 
 First, ensure your Flask application is running. You should see output indicating it's running on `http://0.0.0.0:5555`.
 
