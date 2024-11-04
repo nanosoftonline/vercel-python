@@ -17,6 +17,7 @@ This guide will walk you through setting up a basic Flask web application with a
 - [MongoDB integration](#mongodb-integration)
 - [Test Your Application](#test-your-application)
 - [Prepare Your Application for Vercel](#prepare-your-application-for-vercel)
+- [Breaking the Application into separate Folders](#breaking-the-application-into-separate-folders)
 
 
 
@@ -402,7 +403,25 @@ Launch Postman and set up the following requests to test each endpoint:
 After deployment, visit the URL provided by Vercel to verify that your Flask application is running correctly. Check for any errors or issues and adjust your configuration if needed.
 
 
+## Breaking the application into separate folders
+Breaking a Flask application into separate folders helps keep the code organized, manageable, and scalable. Here’s a structure I would recommend for this project:
 
+```
+my_flask_app/
+├── api/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   └── users.py
+│   └── templates/
+│       └── index.html
+│       └── users.html
+├── run.sh
+├── requirements.txt
+└── vercel.json
+
+```
 
 
 
