@@ -4,10 +4,16 @@
 
 {% block content %}
 <div class="overflow-x-auto">
+    <div class="mb-8 flex justify-between">
+        <h2 class="text-xl">Users</h2>
+        <a href="/users/new"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New
+            User</a>
+    </div>
     <table class="min-w-full bg-white border border-gray-200">
         <thead>
             <tr class="bg-gray-100 border-b">
-                <th class="p-4 text-left font-semibold text-gray-600 border-r">_id</th>
+                <th class="p-4 text-left font-semibold text-gray-600 border-r"></th>
                 <th class="p-4 text-left font-semibold text-gray-600 border-r">Name</th>
                 <th class="p-4 text-left font-semibold text-gray-600">Email</th>
             </tr>
@@ -15,9 +21,10 @@
         <tbody>
             {% for user in users %}
             <tr class="border-b hover:bg-gray-50">
-                <td class="p-4 text-gray-700 border-r">{{ user._id }}</td>
+                <td class="p-4 text-gray-700 border-r"><a href="/users/{{ user._id }}"
+                        class="underline">Detail</a></td>
                 <td class="p-4 text-gray-700 border-r">{{ user.name }}</td>
-                <td class="p-4 text-gray-700 border-r"><a href="/users/{{ user._id }}">{{ user.email }}</a></td>
+                <td class="p-4 text-gray-700 border-r">{{ user.email }}</a></td>
             </tr>
             {% endfor %}
         </tbody>

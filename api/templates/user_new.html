@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<form method="post" action="/users" class="flex flex-col items-start space-y-4">
+
+    <input type="text" name="name" placeholder="Name" class="h-7 border p-4" />
+    <input type="text" name="email" placeholder="Email" class="h-7 border p-4" />
+    <button class="p-2 mb-3 bg-green-600 text-white" type="submit">Create</button>
+</form>
+
+{% endblock %}
